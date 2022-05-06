@@ -1,34 +1,17 @@
-# aiogram бот тг
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram import Bot, Dispatcher
-
-# модуль для циганских фокусов со временем
 from datetime import datetime, timedelta
-
-# красивый суп и работа с html и https
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 import requests
-
-# регулярочки
 import re
-
-# модуль базы данных
 import psycopg2
-
-# asynхронность
 import asyncio
 import aiohttp
 from aiohttp_proxy import ProxyConnector
 import ssl
-
-# pikрандом
 import random
-
-# из str в list
 import ast
-
-# config
 import config
 import keyboard
 

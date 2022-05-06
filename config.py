@@ -1,5 +1,6 @@
 qiwi_auth_key = ''
 token_bot = ''
+pw_admin = ''
 
 psycopg2_host = ''
 psycopg2_user = ''

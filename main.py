@@ -1,4 +1,3 @@
-# aiogram бот тг
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram import Bot, Dispatcher, types, executor
@@ -6,14 +5,9 @@ from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher import FSMContext
 import aiogram.utils.markdown as md
 
-# модуль базы данных
 import psycopg2
-
-# configs
 import config
 import keyboard
-
-# модули парсеров
 import ebay
 import bolha
 import gumtree
@@ -23,28 +17,21 @@ import wallapop_uk
 import wallapop_it
 import tutti_ch
 
-# подключение по https протколу
 import requests
 
-# платежная система
 from pyqiwip2p import QiwiP2P
 import pay
 
-# регулярочки
 import re
 
-# pikрандом
 import random
 
-# модуль для циганских фокусов со временем
 from datetime import datetime, timedelta
 
 import urllib
 
 p2p = QiwiP2P(
     auth_key=config.qiwi_auth_key)
-# 5182900643:AAHOq-alIDe9FNjR0HND0Y0zboZBrnUtrD4
-# 5264967851:AAGCIl_O9_PbLaoANz-59CKNXionp7Y9FjM тест бот
 bot = Bot(config.token_bot)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -87,7 +74,7 @@ class set_password(StatesGroup):
 
 @dp.message_handler(state=set_password.password)
 async def get_password(message, state: FSMContext):
-    if message.text == '157642839':
+    if message.text == config.pw_admin:
         await message.answer('приветствую, создатель!\nчего желаешь?', reply_markup=keyboard.admin())
     async with state.proxy() as data:
         data['promo'] = message.text
